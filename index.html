@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taxi Awan - Professioneller Fahrdienst</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css  ">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -139,7 +139,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://intax.de/files/fahrzeugbilder/toyota/taxi-manufactur/Toyota%20Corolla/Toyota%20Corolla%20XII%20ab%202023%20Taxi%20VL%20%C2%A9%20INTAX.de%202024-06-27.jpg');
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('  https://intax.de/files/fahrzeugbilder/toyota/taxi-manufactur/Toyota%20Corolla/Toyota%20Corolla%20XII%20ab%202023%20Taxi%20VL%20%C2%A9%20INTAX.de%202024-06-27.jpg  ');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -717,9 +717,9 @@
             <h2>Unsere Flotte</h2>
             <p>Modern, sauber und voll ausgestattet für Ihren Komfort</p>
         </div>
-        <div class="fleet-grid">
+        <div class="fleet-grid" style="justify-content: center;">
             <!-- Car 1 -->
-            <div class="fleet-card">
+            <div class="fleet-card" style="max-width: 350px;">
                 <img src="https://intax.de/files/fahrzeugbilder/toyota/taxi-manufactur/Toyota%20Corolla/Toyota%20Corolla%20XII%20ab%202023%20Taxi%20VL%20%C2%A9%20INTAX.de%202024-06-27.jpg" alt="Toyota Corolla" class="fleet-img">
                 <div class="fleet-content">
                     <h3>Toyota Corolla Hybrid</h3>
@@ -901,7 +901,7 @@
 </section>
 
 <!-- Floating Buttons -->
-<a href="https://wa.me/4915906645626" class="whatsapp-float" target="_blank">
+<a href="  https://wa.me/4915906645626  " class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 <a href="tel:+4915906645626" class="call-float">
@@ -970,7 +970,6 @@
         const ziel = document.getElementById('ziel').value;
         const datumInput = document.getElementById('datum').value;
         const zeitInput = document.getElementById('zeit').value;
-        const telefon = document.getElementById('telefon').value;
 
         const selectedDateTime = new Date(`${datumInput}T${zeitInput}`);
         const now = new Date();
@@ -1016,7 +1015,7 @@
 
         // 4. Valid booking → send via WhatsApp
         const formattedDate = selectedDateTime.toLocaleDateString('de-DE');
-        const message = `Neue Fahrtanfrage von Taxi Awan:\n\n📍 Abholort: ${start}\n🏁 Zielort: ${ziel}\n📅 Datum: ${formattedDate}\n⏰ Uhrzeit: ${zeitInput}\n📞 Kundennummer: ${telefon}`;
+        const message = `Neue Fahrtanfrage von Taxi Awan:\n\nAbholort: ${start}\nZielort: ${ziel}\nDatum: ${formattedDate}\nUhrzeit: ${zeitInput}`;
         const whatsappUrl = `https://wa.me/4915906645626?text=${encodeURIComponent(message)}`;
 
         successMsg.style.display = 'block';
