@@ -1009,14 +1009,14 @@
         }
 
         // 2. Check 30-minute buffer (future but too soon)
-        if (selectedDateTime < minAllowed) {
+        const hour = selectedDateTime.getHours();
+        if (selectedDateTime < minAllowed && !(hour < 6 || hour >= 21)) {
             warningMsg.style.display = 'block';
             warningMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             return;
         }
 
         // 3. Check operating hours: 6:00–21:00
-        const hour = selectedDateTime.getHours();
         if (hour < 6 || hour >= 21) {
             const requestedTime = formatTime(selectedDateTime);
             errorMsg.innerHTML = `
