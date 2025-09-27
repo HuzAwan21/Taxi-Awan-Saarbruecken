@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Awan - Professioneller Fahrdienst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --primary-dark: #154360;
+            --secondary: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #27ae60;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://intax.de/files/fahrzeugbilder/toyota/taxi-manufactur/Toyota%20Corolla/Toyota%20Corolla%20XII%20ab%202023%20Taxi%20VL%20%C2%A9%20INTAX.de%202024-06-27.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Fleet Section */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .fleet-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .fleet-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .fleet-content {
+            padding: 20px;
+        }
+
+        .fleet-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .feature {
+            background: var(--light-gray);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Reviews */
+        .reviews-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--light-gray);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .review-content {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .rating {
+            color: #f39c12;
+        }
+
+        /* Booking Form */
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Call Button */
+        .call-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 120px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .call-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Messages */
+        .success-message,
+        .warning-message,
+        .error-message {
+            display: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .warning-message,
+        .error-message {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-taxi"></i>
+                <h1>Taxi Awan</h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#fleet">Unsere Flotte</a></li>
+                <li><a href="#reviews">Bewertungen</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#booking" class="btn">Jetzt buchen</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Ihr zuverlässiger Partner für jede Fahrt</h2>
+        <p>Schnell, sicher und komfortabel - Taxi Awan bringt Sie pünktlich ans Ziel. Täglich von 6:00–21:00 Uhr.</p>
+        <a href="#booking" class="btn btn-primary">Jetzt Fahrt buchen</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Unsere Leistungen</h2>
+            <p>Professioneller Service für alle Ihre Transportbedürfnisse</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Flughafentransfer</h3>
+                    <p>Pünktlicher Transfer zu allen Flughäfen.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Hoteltransfer</h3>
+                    <p>Bequemer Transfer zu und von Ihrem Hotel.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bus-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Bahnhoftransfer</h3>
+                    <p>Stressfreie An- und Abreise vom Bahnhof.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Stadtfahrten</h3>
+                    <p>Zuverlässige Fahrten innerhalb der Stadt.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Krankenfahrten</h3>
+                    <p>Sichere und schonende Beförderung zu Arztterminen.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Komfortable Fahrzeuge</h3>
+                    <p>Neue, klimatisierte Fahrzeuge mit ausreichend Platz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fleet Section -->
+<section id="fleet">
+    <div class="container">
+        <div class="section-title">
+            <h2>Unsere Flotte</h2>
+            <p>Modern, sauber und voll ausgestattet für Ihren Komfort</p>
+        </div>
+        <div class="fleet-grid">
+            <!-- Car 1 -->
+            <div class="fleet-card">
+                <img src="https://intax.de/files/fahrzeugbilder/toyota/taxi-manufactur/Toyota%20Corolla/Toyota%20Corolla%20XII%20ab%202023%20Taxi%20VL%20%C2%A9%20INTAX.de%202024-06-27.jpg" alt="Toyota Corolla" class="fleet-img">
+                <div class="fleet-content">
+                    <h3>Toyota Corolla Hybrid</h3>
+                    <p>Sparsam, leise und umweltfreundlich – ideal für Stadt und Land.</p>
+                    <div class="fleet-features">
+                        <span class="feature"><i class="fas fa-user-friends"></i> 4 Personen</span>
+                        <span class="feature"><i class="fas fa-suitcase"></i> 3 Koffer</span>
+                        <span class="feature"><i class="fas fa-snowflake"></i> Klimaanlage</span>
+                        <span class="feature"><i class="fas fa-child"></i> Kindersitz</span>
+                        <span class="feature"><i class="fas fa-leaf"></i> Hybrid</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Car 2 -->
+            <div class="fleet-card">
+                <img src="https://intax.de/files/fahrzeugbilder/mercedes/taxi-manufactur/Mercedes-Benz%20E-Klasse/Mercedes-Benz%20E-Klasse%20T-Modell%20ab%202023%20Taxi%20HL%20%C2%A9%20INTAX.de%202024-06-27.jpg" alt="Mercedes E-Klasse" class="fleet-img">
+                <div class="fleet-content">
+                    <h3>Mercedes E-Klasse</h3>
+                    <p>Premium-Komfort für anspruchsvolle Fahrten.</p>
+                    <div class="fleet-features">
+                        <span class="feature"><i class="fas fa-user-friends"></i> 4 Personen</span>
+                        <span class="feature"><i class="fas fa-suitcase"></i> 4 Koffer</span>
+                        <span class="feature"><i class="fas fa-snowflake"></i> Klimaanlage</span>
+                        <span class="feature"><i class="fas fa-child"></i> Kindersitz</span>
+                        <span class="feature"><i class="fas fa-gas-pump"></i> Benziner</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Car 3 -->
+            <div class="fleet-card">
+                <img src="https://intax.de/files/fahrzeugbilder/vw/taxi-manufactur/VW%20Passat/VW%20Passat%20B8%20ab%202023%20Taxi%20HL%20%C2%A9%20INTAX.de%202024-06-27.jpg" alt="VW Passat" class="fleet-img">
+                <div class="fleet-content">
+                    <h3>VW Passat</h3>
+                    <p>Zuverlässig und geräumig – perfekt für Familien.</p>
+                    <div class="fleet-features">
+                        <span class="feature"><i class="fas fa-user-friends"></i> 5 Personen</span>
+                        <span class="feature"><i class="fas fa-suitcase"></i> 4 Koffer</span>
+                        <span class="feature"><i class="fas fa-snowflake"></i> Klimaanlage</span>
+                        <span class="feature"><i class="fas fa-child"></i> Kindersitz</span>
+                        <span class="feature"><i class="fas fa-gas-pump"></i> Diesel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews">
+    <div class="container">
+        <div class="section-title">
+            <h2>Kundenbewertungen</h2>
+            <p>Was unsere Kunden über uns sagen</p>
+        </div>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-content">
+                    <p>Absolut zuverlässig! Der Fahrer war pünktlich, freundlich und hat mir sogar mit meinem Gepäck geholfen. Werde Taxi Awan definitiv wieder buchen.</p>
+                    <div class="review-author">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-info">
+                            <h4>Michael Schmidt</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-content">
+                    <p>Habe mitten in der Nacht einen Notfalltransfer gebraucht und innerhalb von 10 Minuten war ein Taxi da. Schneller Service und faire Preise!</p>
+                    <div class="review-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>Julia Schneider</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-content">
+                    <p>Perfekter Flughafentransfer! Der Fahrer hat auf meine verspätete Landung gewartet und mich sicher nach Hause gebracht. Sehr empfehlenswert!</p>
+                    <div class="review-author">
+                        <div class="author-avatar">TK</div>
+                        <div class="author-info">
+                            <h4>Thomas Klein</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Booking Section -->
+<section id="booking">
+    <div class="container">
+        <div class="section-title">
+            <h2>Fahrt buchen</h2>
+            <p>Geben Sie Ihre Fahrtwünsche an (6:00–21:00 Uhr)</p>
+        </div>
+        <div class="booking-container">
+            <div class="booking-form">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="start">Abholort *</label>
+                        <input type="text" id="start" class="form-control" placeholder="Adresse oder Ort eingeben" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ziel">Zielort *</label>
+                        <input type="text" id="ziel" class="form-control" placeholder="Adresse oder Ort eingeben" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="datum">Datum *</label>
+                        <input type="date" id="datum" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zeit">Uhrzeit *</label>
+                        <input type="time" id="zeit" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefon">Telefonnummer (für WhatsApp) *</label>
+                        <input type="tel" id="telefon" class="form-control" placeholder="+49 123 456789" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Fahrt per WhatsApp anfordern</button>
+                    <div class="success-message" id="successMessage">
+                        Ihre Anfrage wurde erfolgreich gesendet! Öffnen Sie WhatsApp, um Ihre Nachricht zu senden.
+                    </div>
+                    <div class="warning-message" id="warningMessage">
+                        <p><strong>Für Fahrten innerhalb der nächsten 30 Minuten:</strong><br>
+                            Bitte rufen Sie uns direkt an, um eine sofortige Abholung zu garantieren.</p>
+                        <a href="tel:+4915906645626" class="btn" style="background:#e74c3c; margin-top:10px; display:inline-block;">📞 Jetzt anrufen</a>
+                    </div>
+                    <div class="error-message" id="errorMessage">
+                        <!-- Will be filled dynamically -->
+                    </div>
+                </form>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213573.88188408824!2d6.792238631341504!3d49.24505830722274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795b152e302c0eb%3A0x422d4d510db6b80!2sSaarbr%C3%BCcken!5e0!3m2!1sde!2sde!4v1758951079217!5m2!1sde!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Kontaktieren Sie uns</h2>
+            <p>Öffnungszeiten: täglich 6:00–21:00 Uhr</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Telefon</h4>
+                        <p><a href="tel:+4915906645626">+49 1590 6645626</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>E-Mail</h4>
+                        <p><a href="mailto:dil2104ah@yahoo.com">dil2104ah@yahoo.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Adresse</h4>
+                        <p>Saarbrücken</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Öffnungszeiten</h4>
+                        <p>Täglich 6:00 – 21:00 Uhr<br>365 Tage im Jahr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Buttons -->
+<a href="https://wa.me/4915906645626" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<a href="tel:+4915906645626" class="call-float">
+    <i class="fas fa-phone"></i>
+</a>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Taxi Awan</h3>
+                <p>Ihr zuverlässiger Partner für alle Fahrten in und um Saarbrücken. Täglich 6–21 Uhr.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Leistungen</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Flughafentransfer</a></li>
+                    <li><a href="#services">Bahnhof & Hotel</a></li>
+                    <li><a href="#services">Krankenfahrten</a></li>
+                    <li><a href="#fleet">Unsere Flotte</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontakt</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +49 1590 6645626</li>
+                    <li><i class="fas fa-envelope"></i> dil2104ah@yahoo.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Saarbrücken</li>
+                    <li><i class="fas fa-clock"></i> 6:00–21:00 Uhr</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Taxi Awan. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Helper: format date/time
+    const formatDate = (date) => {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const d = String(date.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+    };
+    const formatTime = (date) => {
+        const h = String(date.getHours()).padStart(2, '0');
+        const m = String(date.getMinutes()).padStart(2, '0');
+        return `${h}:${m}`;
+    };
+
+    // Set min date/time (now + 30 min)
+    const now = new Date();
+    const minDate = new Date(now.getTime() + 30 * 60000);
+    document.getElementById('datum').value = formatDate(minDate);
+    document.getElementById('datum').min = formatDate(now);
+    document.getElementById('zeit').value = formatTime(minDate);
+
+    // Form validation
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const start = document.getElementById('start').value;
+        const ziel = document.getElementById('ziel').value;
+        const datumInput = document.getElementById('datum').value;
+        const zeitInput = document.getElementById('zeit').value;
+        const telefon = document.getElementById('telefon').value;
+
+        const selectedDateTime = new Date(`${datumInput}T${zeitInput}`);
+        const now = new Date();
+        const minAllowed = new Date(now.getTime() + 30 * 60000);
+
+        // Reset messages
+        const successMsg = document.getElementById('successMessage');
+        const warningMsg = document.getElementById('warningMessage');
+        const errorMsg = document.getElementById('errorMessage');
+        successMsg.style.display = 'none';
+        warningMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        // 1. Check if time is in the past
+        if (selectedDateTime < now) {
+            errorMsg.innerHTML = `<p><strong>Unsere Zeitmaschine ist aktuell in der Werkstatt.</strong><br>
+                                     Fahrten in die Vergangenheit sind daher zurzeit nicht möglich 😉<br>
+                                     Bitte wählen Sie eine gültige Zeit – danke für Ihr Verständnis</p>`;
+            errorMsg.style.display = 'block';
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
+
+        // 2. Check 30-minute buffer (future but too soon)
+        if (selectedDateTime < minAllowed) {
+            warningMsg.style.display = 'block';
+            warningMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
+
+        // 3. Check operating hours: 6:00–21:00
+        const hour = selectedDateTime.getHours();
+        if (hour < 6 || hour >= 21) {
+            const requestedTime = formatTime(selectedDateTime);
+            errorMsg.innerHTML = `
+                <p><strong>Entschuldigung, wir sind um die Zeit ${requestedTime} geschlossen.</strong><br>
+                Unsere Öffnungszeiten: täglich 6:00–21:00 Uhr.</p>
+            `;
+            errorMsg.style.display = 'block';
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
+
+        // 4. Valid booking → send via WhatsApp
+        const formattedDate = selectedDateTime.toLocaleDateString('de-DE');
+        const message = `Neue Fahrtanfrage von Taxi Awan:\n\n📍 Abholort: ${start}\n🏁 Zielort: ${ziel}\n📅 Datum: ${formattedDate}\n⏰ Uhrzeit: ${zeitInput}\n📞 Kundennummer: ${telefon}`;
+        const whatsappUrl = `https://wa.me/4915906645626?text=${encodeURIComponent(message)}`;
+
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+        }, 2000);
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
