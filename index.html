@@ -1020,7 +1020,7 @@
         if (hour < 6 || hour >= 21) {
             const requestedTime = formatTime(selectedDateTime);
             errorMsg.innerHTML = `
-                <p><strong>Entschuldigung, wir sind um die Zeit ${requestedTime} Uhr geschlossen.</strong><br>
+                <p><strong>Entschuldigung, zu dieser Uhrzeit haben wir geschlossen.</strong><br>
                 Unsere Öffnungszeiten: täglich 6:00–21:00 Uhr.</p>
             `;
             errorMsg.style.display = 'block';
